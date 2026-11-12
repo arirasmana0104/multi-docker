@@ -28,7 +28,7 @@ jobs:
       - run: docker push 093620/multi-worker
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*' -x '*node_modules*' -x '*.DS_Store*' -x '*.idea*'
+        run: zip -r deploy.zip . -x '*.git*'
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
