@@ -32,6 +32,10 @@ class Fib extends Component {
       index: this.state.index,
     });
     this.setState({ index: '' });
+    // Worker calculates async in Redis; refresh lists without leaving the page
+    await this.fetchIndexes();
+    await this.fetchValues();
+    setTimeout(() => this.fetchValues(), 1000);
   };
 
   renderSeenIndexes() {
